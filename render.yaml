@@ -7,4 +7,4 @@ services:
     startCommand: "python Llmapi.py"
     envVars:
       - key: OPENAI_API_KEY
-        value: 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
+        sync: false
