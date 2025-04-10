@@ -19,8 +19,8 @@ app = Flask(__name__)
 # if not Key:
 #     logger.warning("❌ OPENAI_API_KEY not found in environment!")
 
-# OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
-# OPENAI_MODEL = "gpt-3.5-turbo-16k"
+OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
+OPENAI_MODEL = "gpt-3.5-turbo-16k"
 
 # HEADERS = {
 #     "Authorization": f"Bearer {Key}",
