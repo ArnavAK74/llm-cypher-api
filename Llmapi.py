@@ -39,6 +39,15 @@ def check_key():
 
 # === Cypher Generation Function ===
 def your_groq_llm_conversion_function(text: str) -> str:
+    key = os.getenv("OPENAI_API_KEY")  # ✅ always fresh
+    if not key:
+        logger.error("❌ OPENAI_API_KEY not found!")
+        return ""
+
+    headers = {
+        "Authorization": f"Bearer {key}",
+        "Content-Type": "application/json"
+    }
     """
     Calls OpenAI LLM to convert a natural language prompt into a Cypher query.
     """
