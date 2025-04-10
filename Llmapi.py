@@ -10,26 +10,22 @@ load_dotenv()
 app = Flask(__name__)
 
 # === CONFIGURATION ===
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+Key = os.getenv("OPENAI_API_KEY")
 OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
 OPENAI_MODEL = "gpt-3.5-turbo-16k"
-print(OPENAI_API_KEY)
+
 @app.route("/check-key")
 def check_key():
-    key = os.getenv("OPENAI_API_KEY")
-    if key:
-        return f"✅ Key is loaded 1. Length: {len(key)}"
+    Key = os.getenv("OPENAI_API_KEY")
+    if Key:
+        return f"✅ Key is loaded 1. Length: {len(Key)}"
     else:
         return "❌ OPENAI_API_KEY is not set 1.", 500
-    key = os.environ.get("OPENAI_API_KEY")
-    if key:
-        return f"✅ Key is loaded 2. Length: {len(key)}"
-    else:
-        return "❌ OPENAI_API_KEY is not set 2.", 500
+
 
 
 HEADERS = {
-    "Authorization": f"Bearer {OPENAI_API_KEY}",
+    "Authorization": f"Bearer {Key}",
     "Content-Type": "application/json"
 }
 
