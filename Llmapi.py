@@ -44,7 +44,7 @@ def your_groq_llm_conversion_function(text: str) -> str:
         logger.error("❌ OPENAI_API_KEY not found!")
         return ""
 
-    headers = {
+    HEADERS = {
         "Authorization": f"Bearer {key}",
         "Content-Type": "application/json"
     }
