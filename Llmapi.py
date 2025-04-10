@@ -10,9 +10,10 @@ load_dotenv()
 app = Flask(__name__)
 
 # === CONFIGURATION ===
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
 OPENAI_MODEL = "gpt-3.5-turbo-16k"
+print(OPENAI_API_KEY)
 
 HEADERS = {
     "Authorization": f"Bearer {OPENAI_API_KEY}",
@@ -79,7 +80,7 @@ A: MATCH (n {id: 'France'})-[r:CONNECTED_TO]-(m) RETURN m.id, r.weight
         print(f"[GROQ API] Generated Cypher:\n{cypher}")
         return cypher
     except Exception as e:
-        print(f"[ERROR] Groq API failed: {e}")
+        print(f"[ERROR] OPENAI API failed: {e}")
         
         return ""  # Better to return empty string than fallback Cypher
 
